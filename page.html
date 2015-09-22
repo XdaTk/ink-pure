@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+    <meta name="keywords" content="{{.Site.Title}}, {{.Site.Subtitle}}">
+    <meta name="description" content="{{.Site.Subtitle}}">
+    <title>{{.Site.Title}}</title>
+    <link rel="stylesheet" href="{{.Site.Root}}/css/base.css">
+</head>
+<body class="typo">
+<div id="layout" class="pure-g">
+    <div class="pure-u-1 pure-u-md-1-5 sidebar">
+        <div class="header">
+            <img class="pure-img pure-img-center" src="{{.Site.Logo}}" alt="{{.Site.Title}}">
+            <h1 class="brand-title">{{.Site.Title}}</h1>
+            <h2 class="brand-tagline">{{.Site.Subtitle}}</h2>
+            {{template "header" .}}
+        </div>
+    </div>
+    <div class="pure-u-1 pure-u-md-4-5 content">
+        <div>
+            <div class="posts">
+                {{range .Articles}}
+                <section class="post">
+                    <header class="post-header">
+                        <a href="{{$.Site.Root}}/{{.Link}}" class="post-title">{{.Title}}</a>
+                        <p class="post-meta">
+                            {{if .Author.Name}}<b class="post-author">{{i18n "create_user_name"}}:{{.Author.Name}}</b>&nbsp;&nbsp;&nbsp;&nbsp;{{end}}
+                            <b class="post-meta">
+                                <span class="date" data-time="{{.Date}}">
+                                <span class="from"></span>
+                                {{if .Update}}<span class="date" data-time="{{.Update}}"><span class="from"></span>{{i18n "updated"}}</span>{{end}}
+                            </span>
+                            </b>
+                            {{range .Tags}}
+                            <a class="post-category post-category-pure" href="{{$.Site.Root}}/tag/{{.}}/index.html">{{.}}</a>
+                            {{end}}
+                        </p>
+                    </header>
+                    <div class="post-description">
+                        <div class="post-images pure-g">
+                            {{if .Cover}}<div class="cover" style="background-image:url({{.Cover}});"></div>{{end}}
+                        </div>
+                        {{if .Preview}}
+                        <p>
+                            {{.Preview}}...
+                        </p>
+                        {{end}}
+                    </div>
+                    <h1 class="content-subhead"></h1>
+                </section>
+                {{end}}
+            </div>
+            <div>
+                {{if .Prev}}<a class="pure-button pure-button-primary" href="{{.Site.Root}}/{{.Prev}}">{{i18n "prev_page"}}</a>{{end}}
+                {{if .Next}}<a class="pure-button pure-button-primary" href="{{.Site.Root}}/{{.Next}}">{{i18n "next_page"}}</a>{{end}}
+            </div>
+        </div>
+        {{template "footer" .}}
+    </div>
+</div>
+<script src="{{.Site.Root}}/js/jquery.js"></script>
+<script src="{{.Site.Root}}/js/index.js"></script>
+</body>
+</html>

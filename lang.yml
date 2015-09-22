@@ -1,0 +1,30 @@
+index:
+    en: HOME
+    zh: 首页
+archive:
+    en: ARCHIVE
+    zh: 归档
+tag:
+    en: TAG
+    zh: 标签
+rss:
+    en: RSS
+    zh: 订阅
+updated:
+    en: updated
+    zh: 更新
+prev_page:
+    en: Prev Page
+    zh: 上一页
+next_page:
+    en: Next Page
+    zh: 下一页
+prev_reading:
+    en: Prev Reading
+    zh: 上篇文章
+next_reading:
+    en: Next Reading
+    zh: 下篇文章
+create_user_name:
+    en: Author Name
+    zh: 创建人

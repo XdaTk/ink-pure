@@ -22,6 +22,19 @@ http://leftcoding.com
 ### 第二步
 
 更改`config.yml`下的主题选项`theme: pure`
+在build-》copy-》下添加
+
+``` java
+        - pure/css
+        - pure/js
+``` 
+
+移除
+
+``` java
+        - theme/css
+        - theme/js
+``` 
 
 ### 第三步
 
